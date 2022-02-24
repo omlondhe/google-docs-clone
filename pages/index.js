@@ -1,9 +1,15 @@
 import Head from 'next/head'
 import Header from '../components/Header'
+import React, { useState } from 'react';
 import AddNewDoc from '../components/AddNewDoc'
 import Docs from '../components/Docs'
+import Login from '../components/Login'
+import {  getSession, useSession  } from 'next-auth/react'
 
-export default function Home() {
+export default function Home({session}) {
+
+  if(!session) return <Login/>
+
   return (
     <div className=''>
       <Head>
